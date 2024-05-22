@@ -1,34 +1,61 @@
 package academy.atl.customers.controllers;
 
 import academy.atl.customers.entities.Customer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.annotation.PostConstruct;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class CustomerController {
-    @GetMapping("/customer/107") //Traer un cliente especifico
-    public Customer getCustomer() {
-        return null;
+
+    private List <Customer> list = new ArrayList<>();
+
+    public CustomerController () {
+        list.add(new Customer(1, "John", "Doe", "john.doe@example.com", "123 Elm Street"));
+        list.add(new Customer(2, "Jane", "Smith", "jane.smith@example.com", "456 Oak Street"));
     }
-/*
+
+    @GetMapping("/customer/{id}") //Traer un cliente especifico
+    //public Optional<Customer> getCustomer(@PathVariable Integer id) {
+    public Optional<Customer> getCustomer(@PathVariable Integer id) {
+
+        /*
+        // ...tradicional
+        for (Customer customer:list) {
+            if (customer.getId().equals(id)) return customer;
+        }
+        return null;
+        */
+
+        return list.stream()
+                .filter(customer->customer.getId().equals(id))
+                .findFirst();
+    }
+
     @GetMapping("/customer")    //Traer Todos los Clientes
     public List <Customer> getAllCustomer() {
-        return null;
+        return list; // devuelve la lista
     }
+
+    @DeleteMapping("/customer/{id}")  //Eliminar  Cliente "
+    public boolean removeCustomer(@PathVariable Integer id) {
+            /*
+            // forma clasica
+            for (Customer customer:list) {
+                if (customer.getId().equals(id)) {
+                    list.remove(customer);
+                }
+            }
+            */
+        return list.removeIf(customer->customer.getId().equals(id));
+    }
+
+
+
+/*
     @PostMapping("/customer/107)  //Agregar Cliente
     public void addCustomer(Customer customer){
-
-    }
-
-    @PostMapping("/customer/107)  //Eliminar  Cliente "
-    public void removeCustomer(){
 
     }
 

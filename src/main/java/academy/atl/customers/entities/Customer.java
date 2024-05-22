@@ -6,7 +6,10 @@ import java.util.Objects;
 
 //@Getter @Setter @AllArgsConstructor @NoArgsConstructor @EqualsAndHashCode
 //@ToString
-@Data @Builder
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
     private Integer id;
     private String firstname;
