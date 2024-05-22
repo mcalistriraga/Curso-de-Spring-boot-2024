@@ -45,6 +45,7 @@ public class CustomerController {
             for (Customer customer:list) {
                 if (customer.getId().equals(id)) {
                     list.remove(customer);
+                    break;
                 }
             }
             */
@@ -52,16 +53,33 @@ public class CustomerController {
     }
 
 
+    @PostMapping("/customer")  //Agregar Cliente
+    public void addCustomer(@RequestBody Customer customer){
+        list.add(customer);
+    }
+
+
+    @PutMapping("/customer/{id}")  //Actualizar: Modificar Cliente
+    public void updateCustomer(@PathVariable Integer id,
+                               @RequestBody Customer updateCustomer) {
+        /*
+        // clasico
+        for (Customer customer: list) {
+            if (customer.getId().equals(id)) {
+                list.remove(customer);
+                updateCustomer.setId(id);
+                list.add(updateCustomer);
+                break;
+            }
+        }*/
+        list.removeIf(customer->customer.getId().equals(id));
+        updateCustomer.setId(id);
+        list.add(updateCustomer);
+
+    }
 
 /*
-    @PostMapping("/customer/107)  //Agregar Cliente
-    public void addCustomer(Customer customer){
 
-    }
-
-    @PutMapping("/customer/107)  //Modificar Cliente
-    public void updateCustomer() {
-    }
 
     @PutMapping("/customer/107)  //Buscar Cliente
     public List <Customer> searchCustomer(){
