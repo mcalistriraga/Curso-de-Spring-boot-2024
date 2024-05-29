@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerServicesImp {
+public class CustomerServicesImp implements CustomerService{
 
     private List<Customer> list = new ArrayList<>();
 
