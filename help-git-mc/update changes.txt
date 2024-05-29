@@ -1,0 +1,90 @@
+Claro, te puedo guiar sobre cómo realizar y actualizar cambios en tu aplicación Maven utilizando IntelliJ IDEA y Git. Aquí tienes una serie de pasos que debes seguir cada vez que hagas cambios y quieras subirlos a tu repositorio en GitHub:
+Pasos para Actualizar Cambios en tu Aplicación Maven
+
+    Realizar Cambios en tu Proyecto
+        Abre tu proyecto en IntelliJ IDEA.
+        Realiza los cambios necesarios en tu código.
+
+    Verificar el Estado del Repositorio Local
+
+        Abre la terminal dentro de IntelliJ IDEA o Git Bash.
+
+        Verifica el estado de tu repositorio local para ver qué archivos han sido modificados, agregados o eliminados:
+
+        sh
+
+    git status
+
+Agregar Archivos Cambiados al Índice de Git
+
+    Agrega los archivos modificados al índice para prepararlos para el commit. Puedes agregar archivos individualmente o todos a la vez.
+
+    sh
+
+    git add .
+
+Hacer Commit de los Cambios
+
+    Realiza un commit de los cambios agregados al índice con un mensaje descriptivo sobre los cambios realizados.
+
+    sh
+
+    git commit -m "Descripción de los cambios realizados"
+
+Actualizar la Rama Principal (main)
+
+    Antes de empujar tus cambios, es una buena práctica asegurarte de que tu rama local esté actualizada con la rama remota. Esto es especialmente importante si otros colaboradores pueden haber hecho cambios en el repositorio remoto.
+
+    sh
+
+git pull origin main
+
+Si hay conflictos de merge, resuélvelos en IntelliJ IDEA, haz git add a los archivos conflictivos resueltos y luego realiza un commit de la resolución del conflicto.
+
+sh
+
+    git commit -m "Resolver conflictos de merge"
+
+Empujar los Cambios al Repositorio Remoto
+
+    Empuja tus cambios al repositorio remoto en GitHub.
+
+    sh
+
+        git push origin main
+
+Alternativa Usando la Interfaz Gráfica de IntelliJ IDEA
+
+IntelliJ IDEA también ofrece una interfaz gráfica para trabajar con Git. Aquí están los pasos:
+
+    Realizar Cambios en tu Proyecto
+        Abre tu proyecto en IntelliJ IDEA y realiza los cambios necesarios en tu código.
+
+    Verificar Cambios
+        En la parte inferior de IntelliJ IDEA, haz clic en la pestaña Version Control para ver los cambios realizados.
+
+    Agregar Archivos al Índice
+        Selecciona los archivos que deseas agregar al índice (stage) y haz clic en el icono de + (o usa el menú contextual Git > Add).
+
+    Hacer Commit de los Cambios
+        Haz clic en el icono de Commit en la parte superior de la ventana Version Control (o usa el menú contextual Git > Commit).
+        Escribe un mensaje descriptivo para el commit y haz clic en Commit o Commit and Push si quieres hacer commit y push en un solo paso.
+
+    Actualizar la Rama Principal
+        Si no hiciste Commit and Push, ve al menú VCS > Git > Pull para actualizar tu rama local.
+        Resuelve cualquier conflicto de merge si es necesario.
+
+    Empujar los Cambios al Repositorio Remoto
+        Ve al menú VCS > Git > Push para empujar tus cambios al repositorio remoto en GitHub.
+
+Resumen
+
+    Realiza cambios en tu proyecto en IntelliJ IDEA.
+    Verifica el estado del repositorio con git status.
+    Agrega archivos al índice con git add ..
+    Haz commit de los cambios con git commit -m "Descripción de los cambios".
+    Actualiza tu rama principal con git pull origin main.
+    Empuja los cambios al repositorio remoto con git push origin main.
+
+Usando estos pasos, puedes mantener tu repositorio local y remoto sincronizados y asegurar que todos tus cambios se registren correctamente. ¡Buena suerte con tu desarrollo!
+ChatGPT puede cometer erro
