@@ -1,20 +1,29 @@
 package academy.atl.customers.controllers;
 
 import academy.atl.customers.entities.Customer;
-import academy.atl.customers.services.CustomerServicesImp;
+import academy.atl.customers.services.CustomerService;
+// import academy.atl.customers.services.CustomerServicesImp;
+import academy.atl.customers.Conexion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.*;
 
 @RestController
 public class CustomerController {
 
-    @Autowired // para q la variable se cargue
-    private CustomerServicesImp service;
+    @Autowired // para q la variable se cargue, inyeccion de dependencias
+    // private CustomerServicesImp service;
+    private CustomerService service;   //<--- tambien puede ser asiii
+
 
     @GetMapping("/customer/{id}") //Traer un cliente especifico
     public Optional<Customer> getCustomer(@PathVariable Integer id) {
+
+        // Conexion.getInstance().setPassword("jhsakjashd");
+        // Conexion.getInstance().setPort("jhsakjashd");
+
         return service.getCustomer(id);
     }
 

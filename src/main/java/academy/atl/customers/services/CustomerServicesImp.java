@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service  // muy parecido a: @Component, @Bean   // tienen muy poca diferencia, a nivel interno son muy parcidos
 public class CustomerServicesImp implements CustomerService{
 
     private List<Customer> list = new ArrayList<>();
